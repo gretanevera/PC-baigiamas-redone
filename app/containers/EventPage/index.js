@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-export default function CategoryPage() {
+export default function EventPage() {
   return (
     <div className={'categoryMain mainBody'}>
       import categories from DB with links to subcategories, subcategories lead to subsubs or to articles

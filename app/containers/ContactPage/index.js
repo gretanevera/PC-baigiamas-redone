@@ -1,9 +1,7 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
 
 
-export default function CategoryPage() {
+export default function ContactPage() {
   return (
     <div className={'categoryMain mainBody'}>
       import categories from DB with links to subcategories, subcategories lead to subsubs or to articles

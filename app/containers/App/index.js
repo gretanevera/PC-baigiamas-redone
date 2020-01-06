@@ -13,6 +13,9 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles.js';
 import darkMode from "../../components/DarkMode";
+import CategoryPage from "../CategoryPage/Loadable";
+import ContactPage from "../ContactPage/Loadable";
+import EventPage from "../EventPage/Loadable";
 
 export function openNav() {
   document.getElementById('mySidenav').style.width = '250px';
@@ -32,11 +35,11 @@ export default function App() {
           <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
             &times;
           </a>
-          <a onClick={closeNav}> Pagrindinis </a>
-          <a onClick={closeNav}>Kategorijos</a>
-          <a onClick={closeNav}>Ivykiai</a>
+          <a onClick={closeNav} href={'/'}> Pagrindinis </a>
+          <a onClick={closeNav} href={'/categories'}>Kategorijos</a>
+          <a onClick={closeNav} href={'events'}>Ivykiai</a>
           <a onClick={closeNav}>Kalendorius</a>
-          <a onClick={closeNav}>Kontaktynas</a>
+          <a onClick={closeNav} href={'contacts'}>Kontaktynas</a>
           <a className="sliderbox">
             <div> Tamsusis režimas</div>
             <label className="switch">
@@ -73,9 +76,9 @@ export default function App() {
       </div>
       <Switch>
         <Route exact path="/" component={HomePage}/>
-        {/* <Route exact path="/categories" component={} /> */}
-        {/* <Route exact path="/" component={HomePage} /> */}
-        {/* <Route exact path="/" component={HomePage} /> */}
+         <Route exact path="/categories" component={CategoryPage} />
+         <Route exact path="/contacts" component={ContactPage} />
+         <Route exact path="/events" component={EventPage} />
         <Route component={NotFoundPage}/>
       </Switch>
       <GlobalStyle/>

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 import Image from './bg05.jpg'
 
 const GlobalStyle = createGlobalStyle`
@@ -70,10 +70,10 @@ body .sidenav .sliderbox .slider:before {
   transition: 0.4s;
 }
 body .sidenav .sliderbox input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #181717;
 }
 body .sidenav .sliderbox input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 2px #ddd;
 }
 body .sidenav .sliderbox input:checked + .slider:before {
   -webkit-transform: translateX(13px);
