@@ -9,14 +9,10 @@
 
 import React, {useState} from 'react';
 import {Switch, Route} from 'react-router-dom';
-
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles.js';
-
-
-
-
+import darkMode from "../../components/DarkMode";
 
 export function openNav() {
   document.getElementById('mySidenav').style.width = '250px';
@@ -28,23 +24,6 @@ export function closeNav() {
   document.getElementById('main').style.marginLeft = '0';
 }
 
-
-
-
-
-// export function darkMode() {
-//
-//
-//
-//  if( this.refs.complete.state.checked) {
-//    // change the background to black and letter to white
-//    }
-//  else {
-//    // reset the changes
-//  }
-//
-//   console.log('this is working');
-// }
 export default function App() {
   return (
     <div>
@@ -58,13 +37,13 @@ export default function App() {
           <a onClick={closeNav}>Ivykiai</a>
           <a onClick={closeNav}>Kalendorius</a>
           <a onClick={closeNav}>Kontaktynas</a>
-          {/*<a className="sliderbox">*/}
-          {/*  <div> Tamsusis režimas</div>*/}
-          {/*  <label className="switch">*/}
-          {/*    <input id="sliderid" type="checkbox" onChange={handleChange} />*/}
-          {/*    <span className="slider round"/>*/}
-          {/*  </label>*/}
-          {/*</a>*/}
+          <a className="sliderbox">
+            <div> Tamsusis režimas</div>
+            <label className="switch">
+              <input id="sliderid" type="checkbox" onChange={darkMode} />
+              <span className="slider round"/>
+            </label>
+          </a>
         </div>
 
         <div id="main">

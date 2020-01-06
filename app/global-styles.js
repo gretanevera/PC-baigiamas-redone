@@ -1,13 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
+import Image from './bg05.jpg'
 
 const GlobalStyle = createGlobalStyle`
 body {
   font-family: "Montserrat", sans-serif;
   width: auto;
-  background-color: grey;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${Image}") ;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: black;
 }
 body a {
   cursor: pointer;
@@ -183,7 +185,8 @@ body .top-bar a {
   color: white;
   margin-right: 10px;
 }
-body #mainBody {
+body .mainBody {
+padding: 20px;
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
