@@ -8,7 +8,7 @@ import ContactPage from '../ContactPage/Loadable'
 import CategoryPage from '../CategoryPage/Loadable';
 import EventPage from "../EventPage/Loadable";
 import logo from "../../images/logo.png";
-import { config, db } from  'codemash';
+import {config, db} from 'codemash';
 
 
 config.init({
@@ -22,6 +22,7 @@ export function openNav() {
   document.getElementById('main').style.marginLeft = '250px';
   document.getElementsByClassName('menuName')[0].style.display = 'none';
 }
+
 export function closeNav() {
   document.getElementById('mySidenav').style.width = '0';
   document.getElementById('main').style.marginLeft = '0';
@@ -30,8 +31,8 @@ export function closeNav() {
 }
 
 export default function App() {
-  const logoStyle={
-    margin:'2px',
+  const logoStyle = {
+    margin: '2px',
     width: '50px'
   };
   return (
@@ -50,7 +51,7 @@ export default function App() {
           <a className="sliderbox">
             <div> Tamsusis režimas</div>
             <label className="switch">
-              <input id="sliderid" type="checkbox" onChange={darkMode} />
+              <input id="sliderid" type="checkbox" onChange={darkMode}/>
               <span className="slider round"/>
             </label>
           </a>
@@ -67,16 +68,13 @@ export default function App() {
 
             </div>
           </div>
-
-
-
         </div>
       </div>
       <Switch>
         <Route exact path="/" component={HomePage}/>
-         <Route exact path="/categories" component={CategoryPage} />
-         <Route exact path="/contacts" component={ContactPage} />
-         <Route exact path="/events" component={EventPage} />
+        <Route exact path="/categories" component={CategoryPage}/>
+        <Route exact path="/contacts" component={ContactPage}/>
+        <Route exact path="/events" component={EventPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
       <GlobalStyle/>
