@@ -12,7 +12,7 @@ const selectCategoryPage2Domain = state => state.categoryPage2 || initialState;
  */
 
 /**
- * Default selector used by CategoryPage2
+ * Default selector used by CategoryPage
  */
 
 const makeSelectCategoryPage2 = () =>

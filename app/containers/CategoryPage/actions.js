@@ -1,16 +1,25 @@
-import {GET_MAIN_CATEGORIES, SHOW_INFO} from './constants';
+/*
+ *
+ * CategoryPage actions
+ *
+ */
 
+import { GET_MAIN_CATEGORIES, SHOW_ERRORS, SET_MAIN_CATEGORIES } from './constants';
 
-export function getCategories(categories) {
+export function getCategories() {
   return {
     type: GET_MAIN_CATEGORIES,
-    categories,
-  }
+  };
 }
-
-export function showInfo(articles) {
+export function setCategories(categories) {
   return {
-    type: SHOW_INFO,
-    articles,
-  }
+    type: SET_MAIN_CATEGORIES,
+    categories,
+  };
+}
+export function showErrors(message) {
+  return {
+    type: SHOW_ERRORS,
+    message,
+  };
 }

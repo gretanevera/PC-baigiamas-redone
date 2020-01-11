@@ -1,50 +1,64 @@
-import React from 'react';
-import {compose} from 'redux'
-import {connect} from "react-redux";
-import {useInjectReducer} from "../../utils/injectReducer";
-import reducer from "./reducer";
-import {getCategories, showInfo} from "./actions";
-import { config, db } from  'codemash';
-import {useInjectSaga} from "../../utils/injectSaga";
-import {createStructuredSelector} from "reselect";
+
+import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
+
+import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from 'utils/injectReducer';
+import makeSelectCategoryPage2 from './selectors';
+import reducer from './reducer';
+import saga from './saga';
+import messages from './messages';
+import {getCategories} from './actions'
+import CategoryButtons from '../../components/ButtonList'
 
 
+export function CategoryPage2(props) {
+  useInjectReducer({ key: 'categoryPage2', reducer });
+  useInjectSaga({ key: 'categoryPage2', saga });
 
+const {get }= props;
+const {categories} = props.categoryPage2;
 
-
-
-
-
-
-
-export  default function CategoryPage (props) {
-  useInjectReducer({key: 'categoryPage', reducer});
-  useInjectSaga({key: 'categoryPage' , saga});
-  useEffect (() => {
+  useEffect(()=> {
     get();
   }, []);
-const {get} = props;
-  console.log('props', props);
-  return (
-    <div className={'categoryMain mainBody'}>
-      import categories from DB with links to subcategories, subcategories lead to subsubs or to articles
-      <h2>Please choose your poison</h2>
-      <div className={'buttonBox'}/>
+ console.log(props);
 
-    </div>);
+  return (
+    <>
+    <div className={'mainBody'}>
+      <h2>Hello</h2>
+    <div className={'categoryMenu'}>
+    <CategoryButtons data={categories} />
+    </div>
+    </div>
+    </>
+  );
 }
 
-
-CategoryPage.propTypes = {
-  get: PropTypes.func,
-  categoryPage: PropTypes.shape
-
+CategoryPage2.propTypes = {
+  get: PropTypes.func ,
+  dispatch: PropTypes.shape({
+ }),
 };
+
 const mapStateToProps = createStructuredSelector({
-  categoryPage: makeSelectCategoryPage(),
+  categoryPage2: makeSelectCategoryPage2(),
 });
-function mapDispachToProps (dispatch) {
+
+function mapDispatchToProps(dispatch) {
   return {
-   get: () => dispatch(getCategories()),
+ get: () => dispatch (getCategories()),
   };
 }
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(withConnect)(CategoryPage2);

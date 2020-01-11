@@ -1,6 +1,6 @@
 /**
  *
- * Tests for CategoryPage2
+ * Tests for CategoryPage
  *
  * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
  *
@@ -14,7 +14,7 @@ import { IntlProvider } from 'react-intl';
 import { CategoryPage2 } from '../index';
 import { DEFAULT_LOCALE } from '../../../i18n';
 
-describe('<CategoryPage2 />', () => {
+describe('<CategoryPage />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
     const dispatch = jest.fn();

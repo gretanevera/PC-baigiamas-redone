@@ -182,13 +182,15 @@ body .top-bar a {
   color: white;
   margin-right: 10px;
 }
-body .mainBody {
+.mainBody {
 padding: 20px;
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
   background-color: lightgray;
-  opacity: 80%;}
+  opacity: 90%;
+  border-radius: 3px;
+  }
 .top-bar-col-1{
 justify-content: center;
 align-items: center;

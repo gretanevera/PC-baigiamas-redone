@@ -5,10 +5,11 @@ import NotFoundPage from '../NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles';
 import darkMode from "../../components/DarkMode";
 import ContactPage from '../ContactPage/Loadable'
-import CategoryPage2 from '../CategoryPage2/Loadable';
+import CategoryPage from '../CategoryPage/Loadable';
 import EventPage from "../EventPage/Loadable";
 import logo from "../../images/logo.png";
 import { config, db } from  'codemash';
+
 
 config.init({
   projectId: 'f3d41878-d3d0-4b4e-9de9-26740ddbbf67',
@@ -67,14 +68,13 @@ export default function App() {
             </div>
           </div>
 
-          <div className="footer">
-            {/* <p> 2019 INFONIMAS. Visos teisės saugomos.</p> */}
-          </div>
+
+
         </div>
       </div>
       <Switch>
         <Route exact path="/" component={HomePage}/>
-         <Route exact path="/categories" component={CategoryPage2} />
+         <Route exact path="/categories" component={CategoryPage} />
          <Route exact path="/contacts" component={ContactPage} />
          <Route exact path="/events" component={EventPage} />
         <Route component={NotFoundPage}/>
