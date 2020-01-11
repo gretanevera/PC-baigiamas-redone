@@ -25,6 +25,7 @@ body .sidenav {
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
+  margin:0px;
 }
 body .sidenav .sliderbox {
   position: absolute;
@@ -122,9 +123,11 @@ body .top-bar {
   color: white;
   display: flex;
   margin-bottom: 10px;
+  white-space: nowrap
 }
 body .top-bar .top-bar-col-1 {
   width: 20%;
+  white-space: nowrap;
 }
 body .top-bar a {
   margin-left: 20px;
@@ -137,12 +140,6 @@ body .top-bar .top-bar-col-2 {
 }
 body .top-bar .top-bar-col-3 {
   width: 20%;
-  /* The container <div> - needed to position the dropdown content */
-  /* Dropdown Content (Hidden by Default) */
-  /* Links inside the dropdown */
-  /* Change color of dropdown links on hover */
-  /* Show the dropdown menu on hover */
-  /* Change the background color of the dropdown button when the dropdown content is shown */
 }
 body .top-bar .top-bar-col-3 dropbtn {
   background-color: #4CAF50;
@@ -192,7 +189,11 @@ padding: 20px;
   margin-right: 25%;
   background-color: lightgray;
   opacity: 80%;}
-
+.top-bar-col-1{
+justify-content: center;
+align-items: center;
+display: flex;
+    }
 `;
 
 export default GlobalStyle;

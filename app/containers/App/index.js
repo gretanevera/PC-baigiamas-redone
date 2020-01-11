@@ -1,33 +1,38 @@
-/**
- *
- * App.js
- *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
- *
- */
-
-import React, {useState} from 'react';
-import {Switch, Route} from 'react-router-dom';
-import HomePage from 'containers/HomePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import GlobalStyle from '../../global-styles.js';
+import React from 'react';
+import {Switch, Route, Link} from 'react-router-dom';
+import HomePage from "../HomePage/Loadable";
+import NotFoundPage from '../NotFoundPage/Loadable';
+import GlobalStyle from '../../global-styles';
 import darkMode from "../../components/DarkMode";
-import CategoryPage from "../CategoryPage/Loadable";
-import ContactPage from "../ContactPage/Loadable";
+import ContactPage from '../ContactPage/Loadable'
+import CategoryPage2 from '../CategoryPage2/Loadable';
 import EventPage from "../EventPage/Loadable";
+import logo from "../../images/logo.png";
+import { config, db } from  'codemash';
+
+config.init({
+  projectId: 'f3d41878-d3d0-4b4e-9de9-26740ddbbf67',
+  secretKey: 'rwMxs3DpujYvq8zpBOJ26eONZnIwPavy'
+});
+
 
 export function openNav() {
   document.getElementById('mySidenav').style.width = '250px';
   document.getElementById('main').style.marginLeft = '250px';
+  document.getElementsByClassName('menuName')[0].style.display = 'none';
 }
-
 export function closeNav() {
   document.getElementById('mySidenav').style.width = '0';
   document.getElementById('main').style.marginLeft = '0';
+  document.getElementsByClassName('menuName')[0].style.display = 'block';
+
 }
 
 export default function App() {
+  const logoStyle={
+    margin:'2px',
+    width: '50px'
+  };
   return (
     <div>
       <div className="App">
@@ -35,11 +40,12 @@ export default function App() {
           <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
             &times;
           </a>
-          <a onClick={closeNav} href={'/'}> Pagrindinis </a>
-          <a onClick={closeNav} href={'/categories'}>Kategorijos</a>
-          <a onClick={closeNav} href={'events'}>Ivykiai</a>
-          <a onClick={closeNav}>Kalendorius</a>
-          <a onClick={closeNav} href={'contacts'}>Kontaktynas</a>
+          <Link to={'/'} onClick={closeNav}>Pagrindinis</Link>
+          <Link to={'/categories'} onClick={closeNav}>Kategorijos</Link>
+          <Link to={'/events'} onClick={closeNav}>Įvykiai</Link>
+          <Link to={'/calendar'} onClick={closeNav}>Kalendorius</Link>
+          <Link to={'/contacts'} onClick={closeNav}>Kontaktai</Link>
+
           <a className="sliderbox">
             <div> Tamsusis režimas</div>
             <label className="switch">
@@ -52,20 +58,12 @@ export default function App() {
         <div id="main">
           <div className="top-bar">
             <div className="top-bar-col-1">
-              <a onClick={openNav}>Meniu</a>
+              <a className="menuName" onClick={openNav}>Meniu</a>
             </div>
-            <div className="top-bar-col-2"/>
+            <div className="top-bar-col-2">INFOBAZĖ</div>
             <div className="top-bar-col-3">
-              {/*<div className="dropdown">*/}
-              {/*  <a className="dropbtn">Prisijungti</a>*/}
-              {/*  /!*<div className="dropdown-content">*!/*/}
-              {/*  /!*  <form>*!/*/}
-              {/*  /!*    <input id="login-email" placeholder="El. pašto adresas" type="email"/>*!/*/}
-              {/*  /!*    <input id="password" placeholder="Slaptažodis" type="password"/>*!/*/}
-              {/*  /!*    /!*<button type={onsubmit}>Prisijungti</button>*!/*!/*/}
-              {/*  /!*  </form>*!/*/}
-              {/*  /!*</div>*!/*/}
-              {/*</div>*/}
+              <img src={logo} alt={'Logo'} style={logoStyle}/>
+
             </div>
           </div>
 
@@ -76,7 +74,7 @@ export default function App() {
       </div>
       <Switch>
         <Route exact path="/" component={HomePage}/>
-         <Route exact path="/categories" component={CategoryPage} />
+         <Route exact path="/categories" component={CategoryPage2} />
          <Route exact path="/contacts" component={ContactPage} />
          <Route exact path="/events" component={EventPage} />
         <Route component={NotFoundPage}/>
