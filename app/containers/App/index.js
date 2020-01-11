@@ -15,8 +15,6 @@ config.init({
   projectId: 'f3d41878-d3d0-4b4e-9de9-26740ddbbf67',
   secretKey: 'rwMxs3DpujYvq8zpBOJ26eONZnIwPavy'
 });
-
-
 export function openNav() {
   document.getElementById('mySidenav').style.width = '250px';
   document.getElementById('main').style.marginLeft = '250px';
