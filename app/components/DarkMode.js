@@ -1,17 +1,27 @@
-import React from 'react';
-import Image from "bg05.jpg";
+import React, {useState} from 'react';
+import Image from '../images/bg05.jpg';
+// import { useState } from 'react';
 
-export default function darkMode() {
+export default function DoDarkMode(e) {
+//padaryti kad perkrovus liktų darkmode
+//console.log('darko initiate', e.target.checked);
 
-  if ((document.body.style.backgroundImage === `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${Image}")`)
-    && (document.body.style.color = 'white') )
-  {
-    document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${Image}")`;
+let dark = e.target.checked
+if (dark === true){
+  document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${Image}")`;
+    document.body.style.color = 'white';
+    document.getElementsByClassName('mainBody').style.display = 'none'
+    window.sessionStorage.setItem("dark", dark)
+    //console.log('exported true', dark)
+    let tester = sessionStorage.getItem("dark");
+    //console.log('testing import', tester)
+}
+else {
+  document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${Image}")`;
     document.body.style.color = 'black';
     document.getElementsByClassName('mainBody')[0].style.backgroundColor = 'lightgray';
-  } else {
-    document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${Image}")`;
-    document.body.style.color = 'white';
-    document.getElementsByClassName('mainBody')[0].style.backgroundColor = 'transparent';
-  }
+    window.sessionStorage.setItem("dark",dark)
+    //console.log('exported false', dark)
+}
+
 }

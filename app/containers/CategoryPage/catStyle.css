@@ -1,4 +1,9 @@
 
+.spinnerino{
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
 .categoryMenu {
   display: inline-block;
 
@@ -50,8 +55,15 @@
   text-align: center;
 
 }
+.categoryMenuwrap{
+ display: flex;
+ align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 .mainBody {
   display: block;
-  alignment: center;
+  
+  /* alignment: center; */
 }

@@ -7,7 +7,7 @@ import produce from 'immer';
 import { SET_MAIN_CATEGORIES, SHOW_ERRORS } from './constants';
 
 export const initialState = {
-  message:'',
+  loading: true,
   categories: [],
 };
 
@@ -19,7 +19,7 @@ const categoryPage2Reducer = (state = initialState, action) =>
         draft.categories = action.categories
         break;
         case SHOW_ERRORS:
-        draft.message = action.message
+        draft.loading = action.loading
         break;
     }
   });

@@ -1,55 +1,59 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import HomePage from "../HomePage/Loadable";
 import NotFoundPage from '../NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles';
-import darkMode from "../../components/DarkMode";
+import DoDarkMode , {setDark, dark} from "../../components/DarkMode"
 import ContactPage from '../ContactPage/Loadable'
 import CategoryPage from '../CategoryPage/Loadable';
 import EventPage from "../EventPage/Loadable";
 import logo from "../../images/logo.png";
 import {config, db} from 'codemash';
-
-
-config.init({
+import { CalendarPage } from '../CalendarPage';
+import DarkFromStorage from '../../components/DarkFromStorage'
+import { OpenNav } from '../../components/OpenNav';
+import{ CloseNav } from '../../components/CloseNav';
+import ReactDOM from "react-dom";
+ 
+config.init
+({
   projectId: 'f3d41878-d3d0-4b4e-9de9-26740ddbbf67',
   secretKey: 'rwMxs3DpujYvq8zpBOJ26eONZnIwPavy'
 });
-export function openNav() {
-  document.getElementById('mySidenav').style.width = '250px';
-  document.getElementById('main').style.marginLeft = '250px';
-  document.getElementsByClassName('menuName')[0].style.display = 'none';
-}
 
-export function closeNav() {
-  document.getElementById('mySidenav').style.width = '0';
-  document.getElementById('main').style.marginLeft = '0';
-  document.getElementsByClassName('menuName')[0].style.display = 'block';
-
-}
 
 export default function App() {
+ let darkMemory=false;
+ darkMemory = (sessionStorage.getItem("dark") == 'true')
+
+if (darkMemory === true){
+   DarkFromStorage();
+  
+   }
+
   const logoStyle = {
     margin: '2px',
     width: '50px'
   };
+
+
   return (
     <div>
       <div className="App">
         <div id="mySidenav" className="sidenav">
-          <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
+          <a href="javascript:void(0)" className="closebtn" onClick={CloseNav}>
             &times;
           </a>
-          <Link to={'/'} onClick={closeNav}>Pagrindinis</Link>
-          <Link to={'/categories'} onClick={closeNav}>Kategorijos</Link>
-          <Link to={'/events'} onClick={closeNav}>Įvykiai</Link>
-          <Link to={'/calendar'} onClick={closeNav}>Kalendorius</Link>
-          <Link to={'/contacts'} onClick={closeNav}>Kontaktai</Link>
+          <Link to={'/'} onClick={CloseNav}>Pagrindinis</Link>
+          <Link to={'/categories'} onClick={CloseNav}>Kategorijos</Link>
+          <Link to={'/events'} onClick={CloseNav}>Įvykiai</Link>
+          <Link to={'/calendar'} onClick={CloseNav}>Kalendorius</Link>
+          <Link to={'/contacts'} onClick={CloseNav}>Kontaktai</Link>
 
           <a className="sliderbox">
             <div> Tamsusis režimas</div>
             <label className="switch">
-              <input id="sliderid" type="checkbox" onChange={darkMode}/>
+              <input id="sliderid" type="checkbox" defaultChecked={darkMemory} onChange={DoDarkMode}  />
               <span className="slider round"/>
             </label>
           </a>
@@ -58,7 +62,7 @@ export default function App() {
         <div id="main">
           <div className="top-bar">
             <div className="top-bar-col-1">
-              <a className="menuName" onClick={openNav}>Meniu</a>
+              <a className="menuName" onClick={OpenNav}>Meniu</a>
             </div>
             <div className="top-bar-col-2">INFOBAZĖ</div>
             <div className="top-bar-col-3">
@@ -73,6 +77,7 @@ export default function App() {
         <Route exact path="/categories" component={CategoryPage}/>
         <Route exact path="/contacts" component={ContactPage}/>
         <Route exact path="/events" component={EventPage}/>
+        <Route exact path="/calendar" component={CalendarPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
       <GlobalStyle/>

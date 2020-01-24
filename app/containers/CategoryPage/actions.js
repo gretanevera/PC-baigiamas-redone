@@ -17,9 +17,9 @@ export function setCategories(categories) {
     categories,
   };
 }
-export function showErrors(message) {
+export function showErrors(loading) {
   return {
     type: SHOW_ERRORS,
-    message,
+    loading,
   };
 }
