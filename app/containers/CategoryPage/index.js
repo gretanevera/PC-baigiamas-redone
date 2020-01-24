@@ -11,7 +11,7 @@ import makeSelectCategoryPage2 from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import {getCategories, showErrors} from './actions';
+import {getCategories, loading } from './actions';
 import CategoryButtons from '../../components/ButtonList';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import Spinner from 'react-bootstrap/Spinner';
@@ -35,11 +35,11 @@ console.log('loader is ',loader);
 
  let  SpinnerStyle={
     display: "flex"
-  }
+  };
 
 
 if (loading === false){
-  SpinnerStyle={display: 'none'}
+  SpinnerStyle={display: 'none'};
   console.log('ddo thing');
 }
 else{

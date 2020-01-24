@@ -4,7 +4,7 @@
  *
  */
 
-import { GET_MAIN_CATEGORIES, SHOW_ERRORS, SET_MAIN_CATEGORIES } from './constants';
+import { GET_MAIN_CATEGORIES, LOADING, SET_MAIN_CATEGORIES } from './constants';
 
 export function getCategories() {
   return {
@@ -19,7 +19,7 @@ export function setCategories(categories) {
 }
 export function showErrors(loading) {
   return {
-    type: SHOW_ERRORS,
+    type: LOADING,
     loading,
   };
 }

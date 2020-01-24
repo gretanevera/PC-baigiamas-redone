@@ -4,7 +4,7 @@
  *
  */
 import produce from 'immer';
-import { SET_MAIN_CATEGORIES, SHOW_ERRORS } from './constants';
+import { SET_MAIN_CATEGORIES, LOADING } from './constants';
 
 export const initialState = {
   loading: true,
@@ -16,10 +16,10 @@ const categoryPage2Reducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {
       case SET_MAIN_CATEGORIES:
-        draft.categories = action.categories
+        draft.categories = action.categories;
         break;
-        case SHOW_ERRORS:
-        draft.loading = action.loading
+        case LOADING:
+        draft.loading = action.loading;
         break;
     }
   });

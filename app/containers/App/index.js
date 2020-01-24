@@ -14,7 +14,7 @@ import DarkFromStorage from '../../components/DarkFromStorage'
 import { OpenNav } from '../../components/OpenNav';
 import{ CloseNav } from '../../components/CloseNav';
 import ReactDOM from "react-dom";
- 
+
 config.init
 ({
   projectId: 'f3d41878-d3d0-4b4e-9de9-26740ddbbf67',
@@ -24,11 +24,11 @@ config.init
 
 export default function App() {
  let darkMemory=false;
- darkMemory = (sessionStorage.getItem("dark") == 'true')
+ darkMemory = (sessionStorage.getItem("dark") == 'true');
 
 if (darkMemory === true){
    DarkFromStorage();
-  
+
    }
 
   const logoStyle = {
