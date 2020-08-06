@@ -1,3 +1,4 @@
+This project was made for React academy 
 # Documentation
 
 ## Table of Contents
